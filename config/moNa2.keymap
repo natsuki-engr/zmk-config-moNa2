@@ -6,6 +6,7 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #define MOUSE 6
+#define CODING 9
 
 &mt {
     flavor = "balanced";
@@ -19,6 +20,81 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
+        };
+
+        copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <22 23>;
+        };
+
+        paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <23 24>;
+        };
+
+        undo {
+            bindings = <&kp LC(Z)>;
+            key-positions = <20 21>;
+        };
+
+        save {
+            bindings = <&kp LC(S)>;
+            key-positions = <12 13>;
+        };
+
+        command_palette {
+            bindings = <&kp LC(LS(P))>;
+            key-positions = <9 19>;
+        };
+
+        terminal_toggle {
+            bindings = <&kp LC(GRAVE)>;
+            key-positions = <0 10>;
+        };
+
+        quick_open {
+            bindings = <&kp LC(T)>;
+            key-positions = <4 14>;
+        };
+
+        find_in_files {
+            bindings = <&kp LC(LS(F))>;
+            key-positions = <13 23>;
+        };
+
+        toggle_comment {
+            bindings = <&kp LC(SLASH)>;
+            key-positions = <31 41>;
+        };
+
+        bracket_pair {
+            bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+            key-positions = <7 8>;
+        };
+
+        square_bracket_pair {
+            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+            key-positions = <17 18>;
+        };
+
+        curly_bracket_pair {
+            bindings = <&kp LBRC &kp RBRC &kp LEFT>;
+            key-positions = <27 28>;
+        };
+
+        chrome_new_tab {
+            bindings = <&kp LC(T)>;
+            key-positions = <4 5>;
+        };
+
+        chrome_close_tab {
+            bindings = <&kp LC(W)>;
+            key-positions = <1 2>;
+        };
+
+        chrome_reopen_tab {
+            bindings = <&kp LC(LS(T))>;
+            key-positions = <14 15>;
         };
     };
 
@@ -58,7 +134,7 @@
 &kp Q               &kp W         &kp E         &kp R                      &kp T                                           &kp Y        &kp U  &kp I      &kp O    &kp P
 &mt LEFT_CONTROL A  &kp S         &kp D         &kp F                      &kp G           &trans         &kp MINUS        &kp H        &kp J  &kp K      &kp L    &kp SQT
 &mt LEFT_SHIFT Z    &kp X         &kp C         &kp V                      &kp B           &lt 5 COLON    &lt 5 SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &lt 3 SLASH
-&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt 8 LANG_ZENKAKUHANKAKU  &lt 7 LEFT_GUI  &lt 4 SPACE    &kp BACKSPACE    &lt 1 ENTER                             &lt 4 ESCAPE
+&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt CODING LANG_ZENKAKUHANKAKU  &lt 7 LEFT_GUI  &lt 2 SPACE    &kp BACKSPACE    &lt 1 ENTER                             &lt 4 ESCAPE
             >;
 
             sensor-bindings =
@@ -79,10 +155,10 @@
 
         layer_2 {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                 &kp CARET         &kp AMPERSAND      &kp TILDE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))    &kp UNDERSCORE  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH        &kp DOLLAR            &kp PERCENT
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                  &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
-&trans                      &trans           &trans           &trans           &trans        &trans                     &trans          &trans                                                                     &kp PIPE
+&kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT                                    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR
+&kp GRAVE    &kp TILDE    &kp UNDER    &kp MINUS    &kp PLUS   &trans    &trans                &kp EQUAL  &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC
+&kp BSLH     &kp PIPE     &kp LT       &kp GT       &kp QMARK  &trans    &trans                &kp COLON  &kp SEMI   &kp SQT    &kp DQT    &kp SLASH
+&trans       &trans       &trans       &trans       &trans     &trans    &trans                &trans                                       &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -90,10 +166,10 @@
 
         layer_3 {
             bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                     &trans  &trans  &trans  &trans  &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans    &trans  &trans                          &trans
+&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp LC(F)                  &kp LC(G)  &kp LC(LEFT)   &kp LC(UP)     &kp LC(RIGHT)  &kp LC(D)
+&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END    &trans    &trans  &kp LC(A)  &kp LEFT       &kp DOWN       &kp RIGHT      &kp LC(E)
+&kp LEFT_SHIFT  &kp LC(LS(LEFT_ARROW))  &kp LC(X)       &kp LC(LS(RIGHT_ARROW))  &kp LC(B)  &trans    &trans  &kp LC(Z)  &kp LS(LEFT)   &kp LS(DOWN)   &kp LS(RIGHT)  &trans
+&trans          &trans                  &trans          &trans                   &trans     &trans    &trans  &trans                                                   &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -112,10 +188,10 @@
 
         layer_5 {
             bindings = <
-&kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_NUMBER_4  &kp KP_NUMBER_5                    &kp KP_NUMBER_6  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0
-&trans           &trans           &trans           &trans           &trans           &trans    &trans  &trans           &trans           &trans           &trans           &trans
-&trans           &trans           &trans           &trans           &trans           &trans    &trans  &trans           &trans           &trans           &trans           &trans
-&trans           &trans           &trans           &trans           &trans           &trans    &trans  &trans                                                              &trans
+&kp N1     &kp N2     &kp N3     &kp N4     &kp N5                       &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
+&kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &trans    &trans  &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
+&kp F11    &kp F12    &trans     &trans     &trans     &trans    &trans  &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans                                       &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -148,6 +224,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp INT_KANA                          &trans
             >;
+        };
+
+        CODING {
+            bindings = <
+&kp LC(LS(P))  &kp LC(P)      &kp LC(E)      &kp LC(R)      &kp LC(T)                         &kp LC(Y)      &kp LC(U)      &kp LC(I)      &kp LC(O)      &kp LC(LS(O))
+&kp LC(A)      &kp LC(S)      &kp LC(D)      &kp LC(F)      &kp LC(G)      &trans    &trans   &kp LC(H)      &kp LC(J)      &kp LC(K)      &kp LC(L)      &kp LC(SEMI)
+&kp LC(Z)      &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(B)      &trans    &trans   &kp LC(N)      &kp LC(M)      &kp LC(COMMA)  &kp LC(DOT)    &kp LC(SLASH)
+&trans         &trans         &trans         &trans         &trans         &trans    &trans   &trans                                                       &trans
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
     };
 };
